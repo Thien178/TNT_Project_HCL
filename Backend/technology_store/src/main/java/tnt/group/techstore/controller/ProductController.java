@@ -27,14 +27,12 @@ public class ProductController {
 	@Autowired
 	ProductService proSer;
 	
-	@GetMapping("/viewall")
-	@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+	@GetMapping("/auth/viewall")
 	public ResponseEntity<List<Product>> getAllProduct(){
 		return new ResponseEntity<List<Product>>(proSer.getAllProducts(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+	@GetMapping("/auth/{id}")
 	public ResponseEntity<Product> getProctById(@PathVariable("id") long id){
 		return new ResponseEntity<Product> (proSer.getProductById(id), HttpStatus.OK);
 	}

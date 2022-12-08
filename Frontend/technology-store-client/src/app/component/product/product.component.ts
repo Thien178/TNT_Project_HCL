@@ -68,6 +68,7 @@ export class ProductComponent implements OnInit {
       //product.quantity = 1;
       this.productService.addToCart(product);
       this.pros = [...this.productService.getProduct()];
+      alert('Add to cart successful!');
       //this.subTotal = product.price;
     }
   }

@@ -16,15 +16,15 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getAllProduct(): Observable<any> {
-    return this.http.get(API_URL + 'viewall');
+    return this.http.get(API_URL + 'auth/viewall');
   }
 
   getProductByID(id: number): Observable<any> {
-    return this.http.get(API_URL + `${id}`);
+    return this.http.get(API_URL +'auth/' + `${id}`);
   }
 
   deleteProductByID(id: number): Observable<any> {
-    return this.http.delete(API_URL + `${id}`);
+    return this.http.delete(API_URL  +'auth/' +`${id}`);
   }
 
   createByCategory(

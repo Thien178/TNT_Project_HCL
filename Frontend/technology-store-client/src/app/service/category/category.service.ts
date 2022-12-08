@@ -10,10 +10,10 @@ export class CategoryService {
   constructor(private http: HttpClient) {}
 
   getAllCategory(): Observable<any> {
-    return this.http.get(API_URL + 'viewall');
+    return this.http.get(API_URL + 'auth/viewall');
   }
 
   getCategoryByID(id: number): Observable<any> {
-    return this.http.get(API_URL + `${id}`);
+    return this.http.get(API_URL +'auth/' + `${id}`);
   }
 }

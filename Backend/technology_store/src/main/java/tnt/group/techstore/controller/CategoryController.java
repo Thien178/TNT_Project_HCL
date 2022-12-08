@@ -28,8 +28,7 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categorySer;
 
-	@GetMapping("/viewall")
-	@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+	@GetMapping("/auth/viewall")
 	public List<Category> getAllCategorys(){
 		return categorySer.getAllCategorys();
 	}
@@ -40,8 +39,7 @@ public class CategoryController {
 		return new ResponseEntity<Category>(categorySer.createCategory(category), HttpStatus.CREATED);
 	}
 	
-	@GetMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+	@GetMapping("/auth/{id}")
 	public ResponseEntity<Category> getCategoryById(@PathVariable("id") long categoryId){
 		return new ResponseEntity<Category> (categorySer.getCategoryById(categoryId), HttpStatus.OK);
 	}
